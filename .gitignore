@@ -183,3 +183,7 @@ tags
 
 # End of https://www.gitignore.io/api/vim,c++,python
 
+# in/out files
+
+in
+out
