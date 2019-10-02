@@ -1,82 +1,33 @@
 #include <bits/stdc++.h>
-#define int long long
-#define double long double
 using namespace std;
-
-using ii = pair<int, int>;
-using vi = vector<int>;
-using vii = vector<ii>;
-
-#define ff first
-#define ss second
 #define pb push_back
 
-#define EPS 1e-9
-#define INF (int32_t(1e9)+1)
-#define MAX (int32_t(1e6)+1)
-#define M (int32_t(1e9)+7)
-
-#define endl "\n"
-#define debug(x) (cerr << #x << " = " << (x) << endl)
-#define desync() (ios_base::sync_with_stdio(false), cin.tie(NULL), cout.tie(NULL))
-
-inline int mod(int n, int m){
-    int ret = n%m; 
-    if(ret < 0) ret += m;
-    return ret;
-}
+int MAX;
 
 /**
- * Euclidian GCD.
+ * Count Sort.
  *
- * Time Complexity: O(log(min(a, b))).
+ * Sorts a vector using a counting
+ * approach.
+ *
+ * It can only applied in vectors
+ * which integers are non-negative
+ * up to MAX.
+ *
+ * Time Complexity: O(MAX+n).
+ * Where n is the size of the graph.
  */
-int gcd(int a, int b){
-    if(a == 0) return b;
-    return gcd(b%a, a);
-}
+inline void count_sort(vector<int> &v, bool inc = true){
+    int n = v.size();
+    int cnt[MAX] = {};
+    for(int i=0; i<n; ++i)
+        cnt[v[i]]++;
 
-/**
- * Euclidian derivated LCM.
- *
- * Time Complexity: O(log(min(a, b))).
- */
-int lcm(int a, int b){
-    // same as a*b/gcd(a, b) but avoiding overflow.
-    return (a/gcd(a, b))*b;
-}
-
-/**
- * Binary Exponentiation.
- *
- * Time Complexity: O(log(e)).
- */
-int bexp(int b, int e){
-    int res = 1;
-    while(e > 0){
-        if(e & 1)
-            res *= b;
-        b *= b;
-        e >>= 1;
+    int k = (inc? 0 : v.size()-1);
+    for(int i=0; i<MAX; ++i){
+        for(int j=0; j<cnt[i]; ++j, k += (inc? 1 : -1))
+            v[k] = i;
     }
-    return res;
-}
-
-/**
- * Binary Exponentiation with mod.
- *
- * Time Complexity: O(log(e)).
- */
-int bexpm(int b, int e, int m = M){
-    b %= m;
-    int res = 1;
-    while(e > 0){
-        if(e & 1)
-            res = (res*b)%m;
-        b = (b*b)%m;
-        e >>= 1;
-    }
-    return res;
 }
 
 /**
@@ -88,46 +39,48 @@ int bexpm(int b, int e, int m = M){
  * Time Complexity: O(n).
  * Where n is the size of the graph.
  */
-bool erdos(vi dseq){
+inline bool erdos(vector<int> &dseq){
     // dseq = degree sequence.
     int n = dseq.size();
-    sort(dseq.rbegin(), dseq.rend());
 
-    vi psum(dseq);
-    for(int i=1; i<n; ++i)
-        psum[i] += psum[i-1];
+    count_sort(dseq, false);
+    if(dseq[0] >= n)
+        return false;
+    // if it's not possible to use count-sort
+    // use the O(n*log(n)) sort:
+    // sort(dseq.rbegin(), dseq.rend());
 
-    if(psum[n - 1]%2)
+    vector<long long> psum(n);
+    for(int i=0; i<n; ++i){
+        psum[i] = dseq[i];
+        if(i)
+            psum[i] += psum[i-1];
+    }
+    if(psum[n-1]%2)
         return false;
 
-    vi minsum(n + 1, 0);
-    for(int i=1; i<n; ++i){
-        int x = upper_bound(dseq.rbegin(), dseq.rend(), i) - dseq.rbegin();
-        // the quantity of degrees less or equal i.
+    for(int k=1, i=n-1; k<=n; ++k){
+        while(i>=0 and dseq[i] < k)
+            i--;
 
-        minsum[i] = i*max(i & 0, n - x - i) + psum[n - 1];
-        // using (i & 0) to avoid the use of 0LL when using long long.
-
-        int low = max(i-1, n-x-1);
-        if(low >= 0)
-            minsum[i] -= psum[low];
-    }
-
-    for(int k=1; k<=n; ++k){
-        if(psum[k-1] > k*(k - 1) + minsum[k])
+        long long minsum = (long long)k*max(0, i+1-k) + (psum[n-1] - psum[max(k-1, i)]);
+        if(psum[k-1] > (long long)k*(k - 1) + minsum)
             return false;
     }
     return true;
 }
 
-int32_t main(){
-    desync();
+int main(){
     int n;
-    while(cin >> n){
-        vi seq(n);
-        for(int &x:seq)
-            cin >> x;
-        cout << (erdos(seq)? "possivel" : "impossivel") << endl;
+    while(scanf("%d", &n) == 1){
+        MAX = 0;
+
+        vector<int> v(n);
+        for(int i=0; i<n; ++i){
+            scanf("%d", &v[i]);
+            MAX = max(v[i]+1, MAX);
+        }
+        printf("%s\n", (erdos(v)? "possivel" : "impossivel"));
     }
     return 0;
 }
