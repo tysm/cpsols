@@ -1,4 +1,4 @@
-#include <cpplib/header.hpp>
+#include <cpplib/stdinc.hpp>
 #include <cpplib/data-structures/trees/segment-tree.hpp>
 
 int32_t main(){

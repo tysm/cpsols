@@ -174,7 +174,8 @@ tags
 
 # End of https://www.gitignore.io/api/vim,c++,python,visualstudiocode
 
-# in/out files
+# aux files
 
+ans.cpp
 in
 out

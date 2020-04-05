@@ -1,4 +1,4 @@
-#include <cpplib/header.hpp>
+#include <cpplib/stdinc.hpp>
 
 enum class SegTreeKind
 {

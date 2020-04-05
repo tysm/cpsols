@@ -1,4 +1,4 @@
-#include <cpplib/header.hpp>
+#include <cpplib/stdinc.hpp>
 
 struct Node {
     int sum = 0, msum = 0, mpsum = 0, mssum = 0;
