@@ -1,5 +1,5 @@
 #include <cpplib/stdinc.hpp>
-#include <cpplib/data-structures/trees/segment-tree.hpp>
+#include <cpplib/data-structure/tree/segment-tree.hpp>
 
 int32_t main(){
     // https://cses.fi/problemset/task/1647

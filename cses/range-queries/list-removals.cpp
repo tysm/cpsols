@@ -1,5 +1,5 @@
 #include <cpplib/stdinc.hpp>
-#include <cpplib/data-structures/trees/order-statistic-tree.hpp>
+#include <cpplib/data-structure/tree/order-statistic-tree.hpp>
 
 int32_t main(){
     // https://cses.fi/problemset/task/1749

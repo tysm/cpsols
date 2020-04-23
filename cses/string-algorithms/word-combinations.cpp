@@ -1,5 +1,5 @@
 #include <cpplib/stdinc.hpp>
-#include <cpplib/data-structures/trees/trie.hpp>
+#include <cpplib/data-structure/tree/trie.hpp>
 
 string s;
 Trie<> ptree;

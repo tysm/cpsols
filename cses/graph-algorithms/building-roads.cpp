@@ -1,5 +1,5 @@
 #include <cpplib/stdinc.hpp>
-#include <cpplib/data-structures/union-find.hpp>
+#include <cpplib/data-structure/union-find.hpp>
 
 int32_t main(){
     // https://cses.fi/problemset/task/1666

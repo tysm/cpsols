@@ -1,5 +1,5 @@
 #include <cpplib/stdinc.hpp>
-#include <cpplib/data-structures/trees/binary-trie.hpp>
+#include <cpplib/data-structure/tree/binary-trie.hpp>
 
 int32_t main(){
     desync();

@@ -1,5 +1,5 @@
 #include <cpplib/stdinc.hpp>
-#include <cpplib/data-structures/rolling-hash.hpp>
+#include <cpplib/data-structure/rolling-hash.hpp>
 
 int32_t main(){
     // https://cses.fi/problemset/task/1732
