@@ -10,7 +10,7 @@ int32_t main(){
     vi arr(n);
     for(int &h:arr)
         cin >> h;
-    SegTree<SegTreeKind::RMaxQ, int> st(arr);
+    SegTree<RMaxQ, int> st(arr);
     for(int i=0; i<m; ++i){
         int r;
         cin >> r;

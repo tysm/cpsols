@@ -9,7 +9,7 @@ int32_t main(){
     vi arr(n);
     for(auto &i:arr)
         cin >> i;
-    SegTree<SegTreeKind::RMinQ, int> st(arr);
+    SegTree<RMinQ, int> st(arr);
     while(q--){
         int x, a, b;
         cin >> x >> a >> b;

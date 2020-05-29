@@ -14,7 +14,7 @@ int32_t main(){
         for(int j=0; j<n; ++j)
             mat[i][j] = (s[i][j] == '*');
     }
-    SegTree2D<SegTreeKind::RSumQ, int> st(mat);
+    SegTree2D<RSumQ, int> st(mat);
     while(q--){
         int y1, x1, y2, x2;
         cin >> y1 >> x1 >> y2 >> x2;

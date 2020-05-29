@@ -1,51 +1,37 @@
 #include <cpplib/stdinc.hpp>
+#include <cpplib/data-structure/tree/segment-tree.hpp>
 
-struct Node {
-    int sum = 0, msum = 0, mpsum = 0, mssum = 0;
+struct Node : STNodeSB<int> {
+    using super_type = STNodeSB<int>;
+    int sum = 0, mpsum = 0, mssum = 0;
 
-    Node(){}
+    Node() : super_type(0) {}
 
     Node(int val) :
-        sum(val), msum(max(val, 0LL)), mpsum(max(val, 0LL)), mssum(max(val, 0LL)) {}
+        super_type(max(val, 0LL)), sum(val), mpsum(max(val, 0LL)), mssum(max(val, 0LL)) {}
 
-    Node(Node l, Node r) :
-        sum(l.sum + r.sum)
+    Node(const Node &l, const Node &r) :
+        super_type(max({l.value, r.value, l.mssum+r.mpsum}))
     {
+        sum = l.sum+r.sum;
         mpsum = max(l.mpsum, l.sum+r.mpsum);
         mssum = max(l.mssum+r.sum, r.mssum);
-        msum = max({l.msum, r.msum, l.mssum+r.mpsum});
+    }
+
+    bool match(const int value) const { return value; }
+
+    void update(const size_t range)
+    {
+        if(this->set.ss)
+            sum = this->set.ff;
+        sum += this->lazy;
+
+        this->value = mpsum = mssum = max(sum, 0LL);
+
+        this->lazy = 0;
+        this->set = {0, false};
     }
 };
-
-vector<Node> stree(4*MAX);
-
-void build(int l, int r, int pos, vi &arr){
-    if(l>r)
-        return;
-
-    if(l == r)
-        stree[pos] = Node(arr[l]);
-    else{
-        int mid = (l+r)/2;
-        build(l, mid, 2*pos+1, arr);
-        build(mid+1, r, 2*pos+2, arr);
-        stree[pos] = Node(stree[2*pos+1], stree[2*pos+2]);
-    }
-}
-
-void update(int l, int r, int pos, int i, int val){
-    if(l > i or r < i or l > r)
-        return;
-
-    if(l == r)
-        stree[pos] = Node(val);
-    else{
-        int mid = (l+r)/2;
-        update(l, mid, 2*pos+1, i, val);
-        update(mid+1, r, 2*pos+2, i, val);
-        stree[pos] = Node(stree[2*pos+1], stree[2*pos+2]);
-    }
-}
 
 int32_t main(){
     // https://cses.fi/problemset/task/1190
@@ -55,12 +41,12 @@ int32_t main(){
     vi arr(n);
     for(int &i:arr)
         cin >> i;
-    build(0, n-1, 0, arr);
+    SegTreeSB<Node, int> st(arr);
     while(m--){
         int k, x;
         cin >> k >> x;
-        update(0, n-1, 0, k-1, x);
-        cout << stree[0].msum << endl;
+        st.set(k-1, x);
+        cout << st.query(0, n-1) << endl;
     }
     return 0;
 }

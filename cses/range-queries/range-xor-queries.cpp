@@ -9,7 +9,7 @@ int32_t main(){
     vi arr(n);
     for(auto &i:arr)
         cin >> i;
-    SegTree<SegTreeKind::RXorQ, int> st(arr);
+    SegTree<RXorQ, int> st(arr);
     while(q--){
         int a, b;
         cin >> a >> b;
