@@ -1,5 +1,5 @@
 #include <cpplib/stdinc.hpp>
-#include <cpplib/sequence/longest-increasing-subsequence.hpp>
+#include <cpplib/array/longest-increasing-subsequence.hpp>
 
 int32_t main(){
     // https://cses.fi/problemset/task/1145
