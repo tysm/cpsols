@@ -27,7 +27,7 @@ inline int mod(int n, int m){
 }
  
 /**
- * Extended Euclidian GCD.
+ * Extended Euclidean GCD.
  *
  * Time Complexity: O(log(min(a, b))).
  */
@@ -39,7 +39,7 @@ pair<int, ii> gcd(int a, int b){
 }
  
 /**
- * Euclidian derivated LCM.
+ * Euclidean derivated LCM.
  *
  * Time Complexity: O(log(min(a, b))).
  */

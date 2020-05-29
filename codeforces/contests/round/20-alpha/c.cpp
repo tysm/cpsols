@@ -27,7 +27,7 @@ inline int mod(int n, int m){
 }
 
 /**
- * Euclidian GCD.
+ * Euclidean GCD.
  *
  * Time Complexity: O(log(min(a, b))).
  */
@@ -37,7 +37,7 @@ int gcd(int a, int b){
 }
 
 /**
- * Euclidian derivated LCM.
+ * Euclidean derivated LCM.
  *
  * Time Complexity: O(log(min(a, b))).
  */
