@@ -1,26 +1,4 @@
-#include <bits/stdc++.h>
-using namespace std;
-
-#define int long long
-#define double long double
-
-using ii = pair<int, int>;
-using vi = vector<int>;
-using vd = vector<double>;
-using vii = vector<ii>;
-
-#define ff first
-#define ss second
-#define pb push_back
-
-#define EPS 1e-9
-#define INF (int32_t(1e9)+1)
-#define MAX (int32_t(1e6)+1)
-#define M (int32_t(1e9)+7)
-
-#define endl "\n"
-#define debug(x) (cerr << #x << " = " << (x) << endl)
-#define desync() (ios_base::sync_with_stdio(false), cin.tie(NULL), cout.tie(NULL))
+#include <cpplib/stdinc.hpp>
 
 int32_t main(){
     desync();
