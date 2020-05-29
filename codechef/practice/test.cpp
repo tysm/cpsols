@@ -1,7 +1,6 @@
-#include <iostream>
-using namespace std;
+#include <cpplib/stdinc.hpp>
 
-int main() {
+int32_t main(){
     int n;
     while(cin >> n, n != 42)
         cout << n << endl;
