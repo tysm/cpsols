@@ -1,7 +1,7 @@
 #include <cpplib/stdinc.hpp>
 #include <cpplib/data-structure/tree/segment-tree.hpp>
 
-int dfs(vvi &adj, vi &c, map<int, int> &pos, SegTree<SegTreeKind::RSumQ, int> &st, vi &t, vi &ntoi, int p, int u, int idx){
+int dfs(vvi &adj, vi &c, map<int, int> &pos, SegTree<RSumQ, int> &st, vi &t, vi &ntoi, int p, int u, int idx){
     if(pos.count(c[u]))
         st.update(pos[c[u]], -1);
     pos[c[u]] = idx;
@@ -34,7 +34,7 @@ int32_t main(){
     }
     map<int, int> pos;
     vi t(n), tr(n), ntoi(n+1);
-    SegTree<SegTreeKind::RSumQ, int> st(n);
+    SegTree<RSumQ, int> st(n);
     dfs(adj, c, pos, st, t, ntoi, -1, 1, 0);
     for(int i=1; i<=n; ++i){
         if(i > 1)

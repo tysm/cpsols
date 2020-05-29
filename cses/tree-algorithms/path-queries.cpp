@@ -30,7 +30,7 @@ int32_t main(){
     }
     vi t(n), tr(n), ntoi(n+1);
     dfs(adj, v, t, tr, ntoi, -1, 1, 0, 0);
-    SegTree<SegTreeKind::RSumQ, int> st(t);
+    SegTree<RSumQ, int> st(t);
     while(q--){
         int op, s, x;
         cin >> op >> s;
