@@ -14,7 +14,7 @@ vi adj[MAX];
 vii leafs;
 
 void dfs(int s, int nvl){
-    if(adj[s].size() == 0)
+    if(adj[s].empty())
         leafs.pb({nvl, s});
     for(auto i:adj[s])
         dfs(i, nvl+1);

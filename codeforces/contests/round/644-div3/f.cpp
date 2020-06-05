@@ -31,7 +31,7 @@ int32_t main(){
             if(res.ss >= n)
                 ans = res.ff;
         }
-        if(ans.size() == 0)
+        if(ans.empty())
             cout << -1 << endl;
         else
             cout << ans << endl;

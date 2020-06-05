@@ -64,7 +64,7 @@ void balance(){
 }
 
 void insert(int value){
-    if(h1.size() == 0 or value <= h1_value())
+    if(h1.empty() or value <= h1_value())
         insert_h1(value);
     else
         insert_h2(value);
