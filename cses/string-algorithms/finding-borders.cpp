@@ -1,5 +1,6 @@
 #include <cpplib/stdinc.hpp>
 #include <cpplib/data-structure/rolling-hash.hpp>
+#include <cpplib/utility/random.hpp>
 
 int32_t main(){
     // https://cses.fi/problemset/task/1732
@@ -7,10 +8,7 @@ int32_t main(){
     string s;
     cin >> s;
 
-    RollingHash hash(31);
-    // Hash h(s);
-    for(char c:s)
-        hash.push_back(c-'a'+1);
+    RollingHash hash(s, randuint16(1), 'a'); // hack me again, bitch.
 
     vi ans;
     for(int i=0; i<s.size()-1; ++i){
