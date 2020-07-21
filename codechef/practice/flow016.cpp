@@ -1,4 +1,5 @@
 #include <cpplib/stdinc.hpp>
+#include <cpplib/math/number-theory/euclid.hpp>
 
 int32_t main(){
     desync();

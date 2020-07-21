@@ -1,5 +1,6 @@
 #include <cpplib/stdinc.hpp>
-#include <cpplib/math/number-theory/linear-diophantine-equation.hpp>
+#include <cpplib/math/number-theory/euclid.hpp>
+#include <cpplib/math/number-theory/diophantus.hpp>
 
 int32_t main(){
     desync();
@@ -8,8 +9,8 @@ int32_t main(){
     int g = gcd(a, b);
     bool valid = !(c%g);
     if(valid){
-        auto roots = lde(a, b, c);
-        double lhs = -roots.ff, rhs = roots.ss;
+        auto roots = diophantine(a, b, c);
+        double lhs = -get<0>(roots), rhs = get<1>(roots);
         lhs *= g;
         lhs /= b;
         rhs *= g;

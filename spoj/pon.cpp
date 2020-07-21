@@ -8,7 +8,7 @@ int32_t main(){
     while(n--){
         int x;
         cin >> x;
-        if(isprime(x))
+        if(is_prime(x))
             cout << "YES";
         else
             cout << "NO";

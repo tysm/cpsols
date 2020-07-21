@@ -177,5 +177,7 @@ tags
 # aux files
 
 ans.cpp
+*.in
+*.out
 in
 out
