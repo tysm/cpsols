@@ -4,6 +4,8 @@ This repository contains a great set of problem solutions from programming websi
 
 The majority of solutions are sorted by its website folder as it may facilitate the search for specific questions. Most of them were written during my studies and practice during the 2020 pandemic. Even so, many of them are from competitions and contests from past years.
 
+As I mainly practice on [codeforces](https://codeforces.com/), most of the content in this repository is [here](codeforces/)
+
 ## CPPLIB
 
 During your search, you will likely find files with includes similar to the ones below:
