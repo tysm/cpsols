@@ -31,3 +31,9 @@ It will surely be laborious, but I intend to include the team solution and to re
 ## Contributing
 
 Feel free to contribute to this repository by sending your solutions to other problems.
+
+## Software Engineering Note
+
+The solutions here were written to solve problems during time-limited competitions. Thus, the only standards taken into account were the ones that could lead me to a better ranking position.
+
+That said, the solutions here are not beautiful in many software standards (or good practice) levels, but they are faster enough to solve exactly what it was meant to solve :).
