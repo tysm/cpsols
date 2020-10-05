@@ -1,5 +1,5 @@
 #include <cpplib/stdinc.hpp>
-#include <cpplib/data-structure/rolling-hash.hpp>
+#include <cpplib/adt/rolling-hash.hpp>
 #include <cpplib/utility/random.hpp>
 
 int32_t main(){
@@ -14,7 +14,7 @@ int32_t main(){
     for(int i=0; i<s.size()-1; ++i){
         auto qp = hash.query(0, i), qs = hash.query(s.size()-1-i, s.size()-1);
         if(qp == qs)
-            ans.pb(i+1);
+            ans.eb(i+1);
     }
     for(int i=0; i<ans.size(); ++i){
         if(i)

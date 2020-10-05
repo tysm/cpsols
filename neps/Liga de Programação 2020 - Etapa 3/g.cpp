@@ -1,6 +1,6 @@
 #include <cpplib/stdinc.hpp>
-#include <cpplib/math/number-theory/euclid.hpp>
-#include <cpplib/data-structure/geometry/point.hpp>
+#include <cpplib/math/euclid.hpp>
+#include <cpplib/adt/point.hpp>
 
 point<int> normalize(point<int> p){
     if(p.x == 0)

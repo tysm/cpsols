@@ -1,5 +1,5 @@
 #include <cpplib/stdinc.hpp>
-#include <cpplib/graph/tree/lowest-common-ancestor.hpp>
+#include <cpplib/graph/lca.hpp>
 
 int dfs(vvi &adj, vi &s, vi &e, vi &ans, int p, int u){
     int acc = s[u];
@@ -21,8 +21,8 @@ int32_t main(){
     for(int i=1; i<n; ++i){
         int a, b;
         cin >> a >> b;
-        adj[a].pb(b);
-        adj[b].pb(a);
+        adj[a].eb(b);
+        adj[b].eb(a);
     }
 
     LCA lca(adj, 1);

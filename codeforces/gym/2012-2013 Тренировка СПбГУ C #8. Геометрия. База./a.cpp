@@ -1,5 +1,5 @@
 #include <cpplib/stdinc.hpp>
-#include <cpplib/data-structure/geoinc.hpp>
+#include <cpplib/adt/geoinc.hpp>
 
 int32_t main(){
     desync();
@@ -8,6 +8,8 @@ int32_t main(){
     point<int> p, p1 = {1, 0};
     cin >> p.x >> p.y;
     auto a = angle(p, p1);
+    cerr.precision(10);
+    cerr << fixed;
     int xtoy = get<2>(orientation(p1, p));
     if(xtoy == -1)
         a = 2*acos(-1) - a;
